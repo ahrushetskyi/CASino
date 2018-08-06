@@ -16,8 +16,11 @@ class CASino::SessionsController < CASino::ApplicationController
 
   def new
     tgt = current_ticket_granting_ticket
+    respond_to :html
     return handle_signed_in(tgt) unless params[:renew] || tgt.nil?
     redirect_to(params[:service]) if params[:gateway] && params[:service].present?
+  rescue ActionController::UnknownFormat
+    render :none, status: 406
   end
 
   def create

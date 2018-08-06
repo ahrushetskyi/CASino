@@ -13,7 +13,9 @@ require File.expand_path('../dummy/config/environment.rb',  __FILE__)
 require 'rspec/rails'
 require 'rspec/its'
 require 'webmock/rspec'
-
+require 'rails-controller-testing'
+require 'byebug'
+Rails::Controller::Testing.install
 require 'capybara/rails'
 
 ENGINE_RAILS_ROOT = File.join(File.dirname(__FILE__), '../')

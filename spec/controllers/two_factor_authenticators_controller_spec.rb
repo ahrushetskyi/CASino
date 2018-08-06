@@ -1,9 +1,10 @@
 require 'spec_helper'
 
 describe CASino::TwoFactorAuthenticatorsController do
-  include CASino::Engine.routes.url_helpers
+  routes { CASino::Engine.routes }
+
   let(:params) { { } }
-  let(:request_options) { params.merge(use_route: :casino) }
+  let(:request_options) { {params: params} }
 
   describe 'GET "new"' do
     context 'with an existing ticket-granting ticket' do
@@ -237,6 +238,7 @@ describe CASino::TwoFactorAuthenticatorsController do
     end
 
     context 'without a ticket-granting ticket' do
+      let(:params) { {id: '' } }
       it 'redirects to the login page' do
         delete :destroy, request_options
         response.should redirect_to(login_path)
