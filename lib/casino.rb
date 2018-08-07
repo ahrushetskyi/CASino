@@ -47,7 +47,8 @@ module CASino
       timeout: 180,
       lifetime_inactive: 300,
       drift: 30
-    }
+    },
+    base_controller: '::ApplicationController'
   }
 
   self.config.merge! defaults.deep_dup

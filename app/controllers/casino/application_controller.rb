@@ -1,6 +1,6 @@
 require 'casino'
 
-class CASino::ApplicationController < ::ApplicationController
+class CASino::ApplicationController < CASino.config.base_controller.constantize
   include ApplicationHelper
 
   layout 'application'
