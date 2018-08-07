@@ -1,6 +1,8 @@
 require 'casino'
 
-class CASino::ApplicationController < ::ApplicationController
+base = defined?(::CasinoBaseController) ? ::CasinoBaseController : ::ApplicationController
+
+class CASino::ApplicationController < base
   include ApplicationHelper
 
   layout 'application'
