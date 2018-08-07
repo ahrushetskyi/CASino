@@ -3,8 +3,6 @@ require 'casino'
 class CASino::ApplicationController < CASino.config.base_controller.constantize
   include ApplicationHelper
 
-  layout 'application'
-
   unless Rails.env.development?
     rescue_from ActionView::MissingTemplate, with: :missing_template
   end
